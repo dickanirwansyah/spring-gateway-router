@@ -35,7 +35,6 @@ public class ApiGatewayRouteService {
     public Mono<Void> registerApiRouter(RegisterOrUpdateApiRouterRequest request){
         log.info("register api router = {} ", JSON.toJSONString(request));
         ApiRouter apiRouter = new ApiRouter();
-        apiRouter.setId(0l);
         apiRouter.setUri(request.getUri());
         apiRouter.setMethod(request.getMethod());
         apiRouter.setPath(request.getPath());
@@ -52,6 +51,7 @@ public class ApiGatewayRouteService {
         }
         return validateApiRouteIsExist(request.getId())
                 .map(apiRouter -> ApiRouter.builder()
+                        .id(request.getId())
                         .path(request.getPath())
                         .uri(request.getUri())
                         .method(request.getMethod())
