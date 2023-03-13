@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet id="6794ce20-6e91-4150-80d0-7f57206c5d91" author="dickanirwansyah@gmail.com">
+        <sql>
+            create table api_router(
+                id bigint not null,
+                path varchar(255),
+                method varchar(255),
+                uri varchar(255)
+            );
+        </sql>
+    </changeSet>
+    <changeSet id="2738320-6e91-4150-80d0-7f5762733d92" author="dickanirwansyah">
+        <sql>
+            insert into api_router(id, path, method, uri) values (1, '/from-other-link', 'GET', 'https://github.com/dickanirwansyah/spring-open-api');
+        </sql>
+    </changeSet>
+    <changeSet id="738339839-6e91-8282-80d0-7f5738328383" author="dickanirwansyah@gmail.com">
+        <sql>
+            insert into api_router(id, path, method, uri) values (2, '/test-link', 'GET', 'https://httpbin.org/get');
+        </sql>
+    </changeSet>
+    <changeSet id="8282828-6e91-8282-80d0-7f5738328383" author="dickanirwansyah@gmail.com">
+        <sql>
+            insert into api_router(id, path, method, uri) values (3, '/login', 'POST', 'http://localhost:8081/api/v1/users/login');
+        </sql>
+    </changeSet>
+</databaseChangeLog>
